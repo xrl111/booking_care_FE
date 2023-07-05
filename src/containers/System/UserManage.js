@@ -3,12 +3,14 @@ import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import './UserManage.scss'
 import { getAllUsers } from '../../services/userService'
+import ModalUser from './ModalUser';
 class UserManage extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
             arrUsers: [],
+            isOpenModal: false,
         };
     }
 
@@ -20,7 +22,18 @@ class UserManage extends Component {
                 arrUsers: response.users
             })
         }
+    }
 
+    handleAddNewUser = () => {
+        this.setState({
+            isOpenModal: true
+        })
+    }
+
+    toggleUserModal = () => {
+        this.setState({
+            isOpenModal: !this.state.isOpenModal
+        })
     }
 
 
@@ -28,7 +41,13 @@ class UserManage extends Component {
         let arrUsers = this.state.arrUsers;
         return (
             <div className="users-container">
+                <ModalUser
+                    isOpen={this.state.isOpenModal}
+                    toggleFromParent={this.toggleUserModal} />
                 <div className='title text-center'>Manage users</div>
+                <div className='mx-1'>
+                    <button className='btn btn-primary px-3' onClick={this.handleAddNewUser}><i className='fas fa-plus'></i> Add new user</button>
+                </div>
                 <div className='users-table mt-3 mx-1'>
                     <table id="customers">
                         <tr>
