@@ -3,6 +3,7 @@ import { Modal, ModalBody, ModalFooter, ModalHeader, Button } from "reactstrap";
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
+import { emitter } from "../../utils/emitter";
 class ModalUser extends Component {
 
     constructor(props) {
@@ -14,12 +15,24 @@ class ModalUser extends Component {
             lastName: '',
             address: '',
         }
+        this.listenToEmitter();
     }
     componentDidMount() {
     }
 
     toggle = () => {
         this.props.toggleFromParent();
+    }
+    listenToEmitter(){
+        emitter.on('EVENT_CLEAR_MODAL_DATA', () =>{
+            this.setState({
+                email: '',
+                password: '',
+                firstName: '',
+                lastName: '',
+                address: ''
+            })
+        })
     }
 
     handleOnChangeInput(event, id) {
@@ -28,8 +41,6 @@ class ModalUser extends Component {
 
         this.setState({
             ...copyState
-        }, () => {
-            console.log('check state', copyState);
         })
     }
 
@@ -37,17 +48,22 @@ class ModalUser extends Component {
         let isValid = true;
         let arrInput = ['email', 'password', 'firstName', 'lastName', 'address']
         for (let i = 0; i < arrInput.length; i++) {
-            if (this.state[arrInput[i]]) {
+            if (!this.state[arrInput[i]]) {
                 isValid = false;
                 alert('Missing parameter: ' + arrInput[i]);
                 break;
             }
-
         }
         return isValid;
     }
 
-    handAddNewUser
+    handleAddNewUser = ()=>{
+        let isValid = this.checkValidateInput();
+        if (isValid === true){
+            this.props.createNewUser(this.state);
+        }
+        
+    }
 
     render() {
         return (
@@ -109,7 +125,7 @@ class ModalUser extends Component {
 
                 </ModalBody>
                 <ModalFooter>
-                    <Button color="primary" className="px-3" onClick={() => { this.handAddNewUser() }}>Add new</Button>
+                    <Button color="primary" className="px-3" onClick={() => { this.handleAddNewUser() }}>Add new</Button>
                     <Button color="secondary" className="px-3" onClick={() => { this.toggle() }}>Cancel</Button>
                 </ModalFooter>
             </Modal>
