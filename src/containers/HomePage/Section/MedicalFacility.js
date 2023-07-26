@@ -3,9 +3,7 @@ import { connect } from 'react-redux';
 import './MedicalFacility.scss';
 import Slider from 'react-slick';
 class MedicalFacility extends Component {
-
     render() {
-
         return (
             <div className='section-share section-medical-facility'>
                 <div className='section-container'>

@@ -16,7 +16,7 @@
         display: flex;
 
         .left-content {
-            width: 25%;
+            width: 10%;
             display: flex;
             align-items: center;
             cursor: pointer;
@@ -31,7 +31,9 @@
             }
 
             .Header-logo {
-                background: url('../../assets/logo.svg') left center no-repeat;
+                background-image: url('../../assets/logo.png');
+                background-repeat: no-repeat;
+                background-size: contain;
                 height: 70%;
                 width: 85%;
 
@@ -52,7 +54,7 @@
         }
 
         .right-content {
-            width: 15%;
+            width: 25%;
             display: flex;
             justify-content: center;
             align-items: center;

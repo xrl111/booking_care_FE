@@ -19,9 +19,9 @@ class About extends Component {
                             height="400px"
                             src="https://www.youtube.com/embed/FyDQljKtWnI"
                             title="CÀ PHÊ KHỞI NGHIỆP VTV1 - BOOKINGCARE - HỆ THỐNG ĐẶT LỊCH KHÁM TRỰC TUYẾN"
-                            frameborder="0"
+                            frameBorder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowfullscreen>
+                            allowFullScreen>
                         </iframe>
                     </div>
                     <div className='content-right'>Lorem ipsum dolor sit amet. Vel magni sint qui corporis aliquam sed velit quia et explicabo fuga. Qui numquam magni qui nesciunt sunt qui debitis dolorum. Aut cumque magni sit expedita quos est facilis laudantium qui repudiandae repellat aut temporibus velit et consequatur laboriosam ut quisquam perspiciatis?</div>
