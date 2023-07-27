@@ -6,6 +6,7 @@ import * as actions from '../../../store/actions';
 import './UserRedux.scss';
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
+import TableManageUser from './TableManageUser';
 
 import { Label } from 'reactstrap';
 class UserRedux extends Component {
@@ -74,6 +75,21 @@ class UserRedux extends Component {
                 role: arrRoles && arrRoles.length > 0 ? arrRoles[0].key : ''
             })
         }
+
+        if (prevProps.listUsers !== this.props.listUsers) {
+            this.setState({
+                email: '',
+                password: '',
+                firstName: '',
+                lastName: '',
+                phoneNumber: '',
+                address: '',
+                gender: '',
+                position: '',
+                role: '',
+                avatar: '',
+            })
+        }
     }
     openPreviewImg = () => {
         this.setState({
@@ -84,6 +100,7 @@ class UserRedux extends Component {
     handleSaveUser = () => {
         let isValid = this.checkValidateInput();
         if (isValid === false) return;
+
         this.props.createNewUser({
             email: this.state.email,
             password: this.state.password,
@@ -272,6 +289,10 @@ class UserRedux extends Component {
                                     <label className='lable-upload' htmlFor='previewImg'><FormattedMessage id='manage-user.upload-image' /> <i className='fas fa-upload'></i></label>
                                     <div className='preview-image' style={{ backgroundImage: `url(${this.state.previewImgURL})` }}
                                         onClick={() => this.openPreviewImg()}></div>
+                                    {this.state.isOpen === true &&
+                                        <Lightbox
+                                            mainSrc={this.state.previewImgURL}
+                                            onCloseRequest={() => this.setState({ isOpen: false })} />}
                                 </div>
 
                             </div>
@@ -279,14 +300,13 @@ class UserRedux extends Component {
                                 <button className='btn btn-primary'
                                     onClick={() => this.handleSaveUser()}><FormattedMessage id="manage-user.save" /></button>
                             </div>
-
+                            <div className='col-12 mb-5'>
+                                <TableManageUser />
+                            </div>
                         </div>
                     </div>
                 </div>
-                {this.state.isOpen === true &&
-                    <Lightbox
-                        mainSrc={this.state.previewImgURL}
-                        onCloseRequest={() => this.setState({ isOpen: false })} />}
+
             </div>
         )
     }
@@ -301,7 +321,8 @@ const mapStateToProps = state => {
         roleRedux: state.admin.roles,
         isLoadingGender: state.admin.isLoadingGender,
         isLoadingPosition: state.admin.isLoadingPosition,
-        isLoadingRole: state.admin.isLoadingRole
+        isLoadingRole: state.admin.isLoadingRole,
+        listUsers: state.admin.users
     };
 };
 
@@ -311,6 +332,7 @@ const mapDispatchToProps = dispatch => {
         getPositionStart: () => dispatch(actions.fetchPositionStart()),
         getRoleStart: () => dispatch(actions.fetchRoleStart()),
         createNewUser: (data) => dispatch(actions.createNewUser(data)),
+        fetchUserRedux: () => dispatch(actions.fetchAllUsersStart())
         // processLogout: () => dispatch(actions.processLogout()),
         // changeLanguageAppRedux: (language) => dispatch(actions.changeLanguageApp(language))
     };
