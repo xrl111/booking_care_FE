@@ -49,6 +49,7 @@
         "role": "Role",
         "image": "Avatar Image",
         "upload-image": "Upload image",
-        "save": "Save user"
+        "save": "Save user",
+        "edit": "Save changes"
     }
 }
