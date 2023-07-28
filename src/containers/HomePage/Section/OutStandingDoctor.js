@@ -29,8 +29,8 @@ class OutStandingDoctor extends Component {
             <div className='section-share section-outstanding-doctor'>
                 <div className='section-container '>
                     <div className='section-header'>
-                        <span className='title-section'>Bác sĩ nổi bật</span>
-                        <button className='btn-section'>xem them</button>
+                        <span className='title-section'><FormattedMessage id="homepage.outStanding-doctor" /></span>
+                        <button className='btn-section'><FormattedMessage id="homepage.moreInfo" /></button>
                     </div>
                     <div className='section-body'>
                         <Slider {...this.props.settings}>
@@ -51,7 +51,7 @@ class OutStandingDoctor extends Component {
                                                         style={{ backgroundImage: `url(${imageBase64})` }}></div>
                                                 </div>
 
-                                                <div className='position text-center'>
+                                                <div className='position text-center card-content'>
                                                     <div>{this.props.language === LANGUAGES.VI ? nameVi : nameEn}</div>
                                                     <div>Co xuong khop 1</div>
                                                 </div>
