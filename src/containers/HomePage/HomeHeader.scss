@@ -143,12 +143,12 @@
             margin: 0 auto;
             padding: 10px;
             border-radius: 25px;
-            background: white;
+            background: gray;
             margin-top: 15px;
 
             i {
                 margin: 0 5px;
-                color: black;
+                color: white;
             }
 
             input {
@@ -159,6 +159,7 @@
                 border: none;
                 outline: none;
                 padding-left: 10px;
+                color: cyan;
             }
         }
 
