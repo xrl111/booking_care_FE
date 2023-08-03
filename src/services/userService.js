@@ -54,5 +54,6 @@ export {
     getAllDoctorService,
     saveDetailDoctorService,
     getDetailInfoDoctor
+
 }
 
