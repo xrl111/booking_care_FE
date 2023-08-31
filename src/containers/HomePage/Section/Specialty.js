@@ -12,26 +12,26 @@ class Specialty extends Component {
             <div className='section-share section-specialty'>
                 <div className='section-container'>
                     <div className='section-header'>
-                        <span className='title-section'>Chuyen khoa pho bien</span>
-                        <button className='btn-section'>xem them</button>
+                        <span className='title-section'><FormattedMessage id="homepage.specialty" /></span>
+                        <button className='btn-section'><FormattedMessage id="homepage.moreInfo" /></button>
                     </div>
                     <div className='section-body'>
                         <Slider {...this.props.settings}>
                             <div className='section-customize'>
                                 <div className='bg-image section-specialty'></div>
-                                <div>Co xuong khop 1</div>
+                                <div>Cơ xương khớp</div>
                             </div>
                             <div className='section-customize'>
-                                <div className='bg-image section-specialty'></div>
-                                <div>Co xuong khop 1</div>
+                                <div className='bg-image section-specialty1'></div>
+                                <div>Thần Kinh</div>
                             </div>
                             <div className='section-customize'>
-                                <div className='bg-image section-specialty'></div>
-                                <div>Co xuong khop 1</div>
+                                <div className='bg-image section-specialty2'></div>
+                                <div>Tiêu hóa</div>
                             </div>
                             <div className='section-customize'>
-                                <div className='bg-image section-specialty'></div>
-                                <div>Co xuong khop 1</div>
+                                <div className='bg-image section-specialty3'></div>
+                                <div>Tim Mạch</div>
                             </div>
                             <div className='section-customize'>
                                 <div className='bg-image section-specialty'></div>

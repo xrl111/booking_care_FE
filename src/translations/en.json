@@ -9,17 +9,17 @@
         "fee": "Checkup package",
         "check-health": "General health check",
         "support": "Support",
-        "welcome": "Welcome"
+        "welcome": "Welcome",
+        "about": "About Us",
+        "Login": "Đăng nhập",
+        "address": "Địa chỉ"
     },
     "banner": {
         "title1": "MEDICAL PLATFORM",
         "title2": "COMPREHENSIVE HEALTH CARE",
-        "child1": "Specialized examination",
-        "child2": "Remote examination",
-        "child3": "General examination",
-        "child4": "Medical test",
-        "child5": "Mental health",
-        "child6": "Dental examination"
+        "child1": "Make an appointment",
+        "child2": "specialties",
+        "child3": "Doctors"
     },
     "menu": {
         "admin": {
@@ -56,13 +56,47 @@
         "edit": "Save changes"
     },
     "homepage": {
+        "specialty": "Popular specialties",
+        "facility": "Outstanding medical facility",
+        "handbook": "Handbook",
         "outStanding-doctor": "Last week's featured doctor",
-        "moreInfo": "More info"
+        "moreInfo": "More info",
+        "about-paragraph": "MediHeal was established with the desire to support students in remote medical examination and treatment. Right from the very beginning of its operation, MediHeal has focused on building a team of qualified and experienced doctors, gathering a team of leading experts from many fields from the University of Hanoi Medical School and University of Medicine and Pharmacy - Hanoi National University"
     },
     "manage-schedule": {
         "title": "Manage doctor's examination plan",
         "choose-doctor": "Choose doctor",
         "choose-date": "Choose date",
         "save": "Save info"
+    },
+    "patient": {
+        "detail-doctor": {
+            "schedule": "Schedule",
+            "no-schedule": "The doctor does not have an appointment during this time, please choose another time ",
+            "choose": "Choose ",
+            "book-free": " and Booking (free)"
+        },
+        "extra-info-doctor": {
+            "text-address": "Address of examination",
+            "price": "Examination price",
+            "detail": "See details",
+            "payment": "Thepatient can pay the cost in the form of:",
+            "hide-price": "Hide price list"
+        }
+    },
+    "admin": {
+        "manage-doctor": {
+            "title": "Create doctor information",
+            "select-doctor": "Select doctor",
+            "intro": "Introduction",
+            "add": "Create info",
+            "save": "Save info",
+            "price": "Choose price",
+            "payment": "Payment method",
+            "province": "Province",
+            "nameClinic": "Clinic name",
+            "addressClinic": "Clinic address",
+            "note": "Note"
+        }
     }
 }

@@ -7,6 +7,7 @@ import OutStandingDoctor from './Section/OutStandingDoctor';
 import Handbook from './Section/Handbook';
 import About from './Section/About';
 import HomeFooter from './Section/HomeFooter';
+import Address from './Section/Address';
 import './HomePage.scss';
 
 import "slick-carousel/slick/slick.css";
@@ -40,11 +41,13 @@ class HomePage extends Component {
                         settings={settings} />
                     <MedicalFacility
                         settings={settings} />
+
                     <OutStandingDoctor
                         settings={settings} />
                     <Handbook
                         settings={settingHandbook} />
                     <About />
+                    <Address />
                     <HomeFooter />
                 </div>
             </div>

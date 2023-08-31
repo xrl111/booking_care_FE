@@ -23,7 +23,7 @@ class HomeHeader extends Component {
                 <div className='home-header-container'>
                     <div className='home-header-content'>
                         <div className='left-content'>
-                            <div className='Menu-logo'></div>
+                            {/* <div className='Menu-logo'></div> */}
                             <div className='Header-logo' onClick={() => this.returnToHome()}></div>
                         </div>
                         <div className='center-content'>
@@ -32,22 +32,21 @@ class HomeHeader extends Component {
                                 <div className='sub-title'><FormattedMessage id="homeheader.search-doctor" /></div>
                             </div>
                             <div className='child-content'>
-                                <div><b><FormattedMessage id="homeheader.health-facility" /></b></div>
-                                <div className='sub-title' ><FormattedMessage id="homeheader.select-room" /></div>
+                                <div><b><FormattedMessage id="homeheader.fee" /></b></div>
+                                <div className='sub-title'><FormattedMessage id="homeheader.check-health" /></div>
                             </div>
                             <div className='child-content'>
                                 <div><b><FormattedMessage id="homeheader.doctor" /></b></div>
                                 <div className='sub-title'><FormattedMessage id="homeheader.select-doctor" /></div>
                             </div>
-                            <div className='child-content'>
-                                <div><b><FormattedMessage id="homeheader.fee" /></b></div>
-                                <div className='sub-title'><FormattedMessage id="homeheader.check-health" /></div>
-                            </div>
+
                         </div>
                         <div className='right-content'>
                             <div className='support'><i className="fas fa-question-circle"></i> <FormattedMessage id="homeheader.support" /></div>
                             <div className={language === LANGUAGES.VI ? 'language-vi active' : 'language-vi'}><span onClick={() => this.changeLanguage(LANGUAGES.VI)}>VN</span></div>
                             <div className={language === LANGUAGES.EN ? 'language-en active' : 'language-en'}><span onClick={() => this.changeLanguage(LANGUAGES.EN)}>EN</span></div>
+
+                            <button><FormattedMessage id="homeheader.Login" /></button>
                         </div>
                     </div>
                 </div>
@@ -64,29 +63,18 @@ class HomeHeader extends Component {
                         <div className='content-down'>
                             <div className='option'>
                                 <div className='option-child'>
-                                    <div className='icon-child'><i className="far fa-hospital"></i></div>
+                                    <div className='icon-child'><div className='img'></div></div>
                                     <div className='text-child'><FormattedMessage id="banner.child1" /></div>
                                 </div>
                                 <div className='option-child'>
-                                    <div className='icon-child'><i className="fas fa-mobile-alt"></i></div>
+                                    <div className='icon-child'><div className='img1'></div></div>
                                     <div className='text-child'><FormattedMessage id="banner.child2" /></div>
                                 </div>
                                 <div className='option-child'>
-                                    <div className='icon-child'><i className="fas fa-procedures"></i></div>
+                                    <div className='icon-child'><div className='img2'></div></div>
                                     <div className='text-child'><FormattedMessage id="banner.child3" /></div>
                                 </div>
-                                <div className='option-child'>
-                                    <div className='icon-child'><i className="fas fa-prescription-bottle"></i></div>
-                                    <div className='text-child'><FormattedMessage id="banner.child4" /></div>
-                                </div>
-                                <div className='option-child'>
-                                    <div className='icon-child'><i className="fas fa-user-md"></i></div>
-                                    <div className='text-child'><FormattedMessage id="banner.child5" /></div>
-                                </div>
-                                <div className='option-child'>
-                                    <div className='icon-child'><i className="fa fa-heart"></i></div>
-                                    <div className='text-child'><FormattedMessage id="banner.child6" /></div>
-                                </div>
+
                             </div>
                         </div>
                     </div>

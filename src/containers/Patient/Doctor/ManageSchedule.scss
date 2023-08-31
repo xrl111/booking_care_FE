@@ -17,7 +17,13 @@
 
         button {
             padding: 5px 15px;
-            border : 1px solid black
+            border : 1px solid black;
+
+            &.active {
+                background-color: rgb(240, 168, 35);
+                color           : white;
+                border          : none;
+            }
         }
     }
 

@@ -60,7 +60,7 @@ class OutStandingDoctor extends Component {
 
                                                 <div className='position text-center card-content'>
                                                     <div>{this.props.language === LANGUAGES.VI ? nameVi : nameEn}</div>
-                                                    <div>Co xuong khop 1</div>
+                                                    <div>Cơ xương khớp</div>
                                                 </div>
                                             </div>
                                         </div>

@@ -10,21 +10,12 @@ class About extends Component {
         return (
             <div className='section-share section-about'>
                 <div className='section-about-header'>
-                    Truyền thông nói về BookingCare
+                    <FormattedMessage id='homeheader.about' />
                 </div>
                 <div className='section-about-content'>
                     <div className='content-left'>
-                        <iframe
-                            width="100%"
-                            height="400px"
-                            src="https://www.youtube.com/embed/FyDQljKtWnI"
-                            title="CÀ PHÊ KHỞI NGHIỆP VTV1 - BOOKINGCARE - HỆ THỐNG ĐẶT LỊCH KHÁM TRỰC TUYẾN"
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowFullScreen>
-                        </iframe>
                     </div>
-                    <div className='content-right'>Lorem ipsum dolor sit amet. Vel magni sint qui corporis aliquam sed velit quia et explicabo fuga. Qui numquam magni qui nesciunt sunt qui debitis dolorum. Aut cumque magni sit expedita quos est facilis laudantium qui repudiandae repellat aut temporibus velit et consequatur laboriosam ut quisquam perspiciatis?</div>
+                    <div className='content-right'><FormattedMessage id="homepage.about-paragraph" /></div>
                 </div>
             </div>
 

@@ -70,23 +70,23 @@ class Login extends Component {
             <div className='login-background'>
                 <div className='login-container'>
                     <div className='login-content row'>
-                        <div className='col-12 text-login'>Login</div>
+                        <div className='col-12 text-login'>Đăng nhập</div>
                         <div className='col-12 form-group login-input'>
-                            <label>Usernamme</label>
+                            <label>Tên truy cập</label>
                             <input type='text' className='form-control' placeholder='Enter Username'
                                 value={this.state.username}
                                 onChange={(event) => this.handleOnChangeInput(event)}
                                 onKeyDown={(event) => this.handleKeyDown(event)} />
                         </div>
                         <div className='col-12 form-group login-input'>
-                            <label>Password</label>
+                            <label>Mật khẩu</label>
                             <div className='custom-input-password'>
                                 <input type={this.state.isShowPassword ? 'text' : 'password'} className='form-control' placeholder='Enter Password'
                                     value={this.state.password}
                                     onChange={(event) => this.handleOnChangePassword(event)}
                                     onKeyDown={(event) => this.handleKeyDown(event)} />
                                 <span onClick={() => { this.handleShowHidePassword() }}>
-                                    <i class={this.state.isShowPassword ? "fas fa-eye" : "far fa-eye-slash"}></i>
+                                    <i className={this.state.isShowPassword ? "fas fa-eye" : "far fa-eye-slash"}></i>
                                 </span>
 
                             </div>
@@ -99,14 +99,14 @@ class Login extends Component {
                             <button className='btn-login' onClick={() => { this.handleLogin() }}>Login</button>
                         </div>
                         <div className='col-12'>
-                            <span className='forgot-password'>Forgot your password?</span>
+                            <span className='forgot-password'>Quên mật khẩu?</span>
                         </div>
                         <div className='col-12 text-center mt-3'>
-                            <span>Or Login with</span>
+                            <span>Hoặc đăng nhập bằng</span>
                         </div>
                         <div className='col-12 social-login'>
-                            <i class="fab fa-google-plus-g google"></i>
-                            <i class="fab fa-facebook-f facebook"></i>
+                            <i className="fab fa-google-plus-g google"></i>
+                            <i className="fab fa-facebook-f facebook"></i>
 
                         </div>
                     </div>

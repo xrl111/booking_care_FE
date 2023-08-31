@@ -34,7 +34,6 @@ class Header extends Component {
                 menuApp: menu
             })
         }
-        console.log('check userInfo ', this.props.userInfo);
     }
     render() {
         const { processLogout, language, userInfo } = this.props;
