@@ -4,8 +4,6 @@ import { FormattedMessage } from 'react-intl';
 import { LANGUAGES } from '../../../../utils';
 import { Modal } from 'reactstrap';
 import './BookingModal.scss'
-import ProfileDoctor from '../ProfileDoctor';
-import _ from 'lodash';
 
 class BookingModal extends Component {
 
@@ -26,7 +24,6 @@ class BookingModal extends Component {
     }
     render() {
         let { isOpenModal, closeBookingClose, dataTime } = this.props;
-        let doctorId = dataTime && !_.isEmpty(dataTime) ? dataTime.doctorId : '';
 
         console.log('datatime:', dataTime);
         return (
@@ -36,18 +33,18 @@ class BookingModal extends Component {
                     className={'booking-modal-container'}
                     size='lg'
                     centered>
+
                     <div className='booking-modal-content'>
                         <div className='booking-modal-header'>
                             <span className='left'> Thông tin đặt lịch khám bệnh</span>
-                            <span className='right' onClick={closeBookingClose}>
+                            <span 
+                                className='right' 
+                                onClick={closeBookingClose}>
                                 <i className='fas fa-times'></i>
                             </span>
                         </div>
                         <div className='booking-modal-body'>
-                            <div className='doctor-ìno'>
-                                <ProfileDoctor
-                                    doctorId={doctorId}
-                                />
+                            <div className='doctor-info'>
                             </div>
                             <div className='price'>
                                 Giá khám: miễn phí

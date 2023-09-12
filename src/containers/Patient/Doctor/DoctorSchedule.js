@@ -92,6 +92,7 @@ class DoctorSchedule extends Component {
             isOpenModalBooking: true,
             dataScheduleTimeModal: time
         })
+        console.log('scheduleTime: ', time);
     }
 
     closeBookingClose = () => {
@@ -99,6 +100,7 @@ class DoctorSchedule extends Component {
             isOpenModalBooking: false
         })
     }
+
     render() {
         let { allDays, allAvailableTime, isOpenModalBooking, dataScheduleTimeModal } = this.state;
         let { language } = this.props;
@@ -132,8 +134,8 @@ class DoctorSchedule extends Component {
                                                 item.timeTypeData.valueVi : item.timeTypeData.valueEn;
                                             return (
                                                 <button key={index}
-                                                    onClick={() => this.handleClickScheduleTime(item)}
                                                     className={language === LANGUAGES.VI ? 'btn-vie' : 'btn-em'}
+                                                    onClick={() => this.handleClickScheduleTime(item)}
                                                 >{timeDisplay}</button>
                                             )
                                         })
@@ -159,7 +161,8 @@ class DoctorSchedule extends Component {
                 <BookingModal
                     isOpenModal={isOpenModalBooking}
                     closeBookingClose={this.closeBookingClose}
-                    dataTime={dataScheduleTimeModal} />
+                    dataTime={dataScheduleTimeModal} 
+                />
             </>
         );
     }
