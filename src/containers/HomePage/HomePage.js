@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import HomeHeader from './HomeHeader'
+import HomeHeader from './HomeHeader';
 import Specialty from './Section/Specialty';
 import MedicalFacility from './Section/MedicalFacility';
 import OutStandingDoctor from './Section/OutStandingDoctor';
@@ -10,11 +10,10 @@ import HomeFooter from './Section/HomeFooter';
 import Address from './Section/Address';
 import './HomePage.scss';
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 class HomePage extends Component {
-
     render() {
         let settings = {
             dots: false,
@@ -22,7 +21,6 @@ class HomePage extends Component {
             speed: 500,
             slidesToShow: 4,
             slidesToScroll: 1,
-
         };
         let settingHandbook = {
             dots: false,
@@ -30,42 +28,33 @@ class HomePage extends Component {
             speed: 500,
             slidesToShow: 2,
             slidesToScroll: 1,
-
         };
 
         return (
-            <div className=''>
-                <div className=''>
+            <div className="">
+                <div className="">
                     <HomeHeader isShowBanner={true} />
-                    <Specialty
-                        settings={settings} />
-                    <MedicalFacility
-                        settings={settings} />
+                    <Specialty settings={settings} />
+                    <MedicalFacility settings={settings} />
 
-                    <OutStandingDoctor
-                        settings={settings} />
-                    <Handbook
-                        settings={settingHandbook} />
+                    <OutStandingDoctor settings={settings} />
                     <About />
                     <Address />
                     <HomeFooter />
                 </div>
             </div>
-
         );
     }
-
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
     return {
-        isLoggedIn: state.user.isLoggedIn
+        isLoggedIn: state.user.isLoggedIn,
     };
 };
 
-const mapDispatchToProps = dispatch => {
-    return {
-    };
+const mapDispatchToProps = (dispatch) => {
+    return {};
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

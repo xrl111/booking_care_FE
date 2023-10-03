@@ -73,6 +73,7 @@ class DoctorSchedule extends Component {
             this.setState({
                 allAvailableTime: res.data ? res.data : [],
             });
+            console.log('all available time: ', this.state.allAvailableTime);
         }
     }
     handleOnChangeSelect = async (event) => {
@@ -135,19 +136,21 @@ class DoctorSchedule extends Component {
                                 <>
                                     <div className="time-content-btn">
                                         {allAvailableTime.map((item, index) => {
-                                            let timeDisplay =
-                                                language === LANGUAGES.VI
-                                                    ? item.timeTypeData.valueVi
-                                                    : item.timeTypeData.valueEn;
-                                            return (
-                                                <button
-                                                    key={index}
-                                                    className={language === LANGUAGES.VI ? 'btn-vie' : 'btn-em'}
-                                                    onClick={() => this.handleClickScheduleTime(item)}
-                                                >
-                                                    {timeDisplay}
-                                                </button>
-                                            );
+                                            if (item.currentNumber < item.maxNumber) {
+                                                let timeDisplay =
+                                                    language === LANGUAGES.VI
+                                                        ? item.timeTypeData.valueVi
+                                                        : item.timeTypeData.valueEn;
+                                                return (
+                                                    <button
+                                                        key={index}
+                                                        className={language === LANGUAGES.VI ? 'btn-vie' : 'btn-em'}
+                                                        onClick={() => this.handleClickScheduleTime(item)}
+                                                    >
+                                                        {timeDisplay}
+                                                    </button>
+                                                );
+                                            }
                                         })}
                                     </div>
 

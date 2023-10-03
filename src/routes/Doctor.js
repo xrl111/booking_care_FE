@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import Header from '../containers/Header/Header';
 import ManageSchedule from '../containers/Patient/Doctor/ManageSchedule';
+import ManagePatient from '../containers/System/Doctor/ManagePatient';
 class Doctor extends Component {
     render() {
         const { isLoggedIn } = this.props;
@@ -13,8 +14,7 @@ class Doctor extends Component {
                     <div className="Doctor-list">
                         <Switch>
                             <Route path="/doctor/manage-schedule" component={ManageSchedule} />
-
-
+                            <Route path="/doctor/manage-patient" component={ManagePatient} />
                         </Switch>
                     </div>
                 </div>
@@ -23,16 +23,15 @@ class Doctor extends Component {
     }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
     return {
         DoctorMenuPath: state.app.DoctorMenuPath,
-        isLoggedIn: state.user.isLoggedIn
+        isLoggedIn: state.user.isLoggedIn,
     };
 };
 
-const mapDispatchToProps = dispatch => {
-    return {
-    };
+const mapDispatchToProps = (dispatch) => {
+    return {};
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Doctor);

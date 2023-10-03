@@ -3,66 +3,34 @@ import { connect } from 'react-redux';
 
 import { LANGUAGES } from '../../../utils';
 import { FormattedMessage } from 'react-intl';
-import * as actions from '../../../store/actions';
-import './ManageClinic.scss';
+import './CreateClinic.scss';
 import MarkdownIt from 'markdown-it';
 import MdEditor from 'react-markdown-editor-lite';
 import { CommonUtils } from '../../../utils';
-import { createNewClinic, getAllDetailClinicByIdForManageClinic } from '../../../services/userService';
+import { createNewClinic } from '../../../services/userService';
 import { toast } from 'react-toastify';
-
-import Select from 'react-select';
 
 const mdParser = new MarkdownIt();
 
-class ManageClinic extends Component {
+class CreateClinic extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            listClinic: [],
-            clinicId: '',
             name: '',
             address: '',
             imageBase64: '',
             descriptionHTML: '',
             descriptionMarkdown: '',
-            selectedClinic: '',
-            action: 'EDIT',
+            action: 'ADD',
         };
     }
 
-    async componentDidMount() {
-        this.props.getAllRequiredDoctorInfo();
-    }
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        if (prevProps.allRequiredDoctorInfo !== this.props.allRequiredDoctorInfo) {
-            let { resClinic } = this.props.allRequiredDoctorInfo;
-            console.log(resClinic);
-            let dataSelectClinic = this.buildDataInputSelect(resClinic);
-            this.setState({
-                listClinic: dataSelectClinic,
-            });
-        }
-    }
-    buildDataInputSelect = (inputData) => {
-        let results = [];
-        if (inputData && inputData.length > 0) {
-            inputData.map((item, index) => {
-                let object = {};
-                object.value = item.id;
-                object.label = item.name;
-                results.push(object);
-            });
-        }
-        console.log(results);
-        return results;
-    };
+    componentDidMount() {}
     handleOnChangeInput = (event, id) => {
         let stateCopy = { ...this.state };
         stateCopy[id] = event.target.value;
         this.setState({ ...stateCopy });
     };
-
     handleEditorChange = ({ html, text }) => {
         this.setState({
             descriptionHTML: html,
@@ -82,7 +50,6 @@ class ManageClinic extends Component {
 
     handleSaveNewClinic = async () => {
         let res = await createNewClinic(this.state);
-        console.log('saveNewClinic', this.state);
         if (res && res.errCode === 0) {
             toast.success('Add new specialty succeeds');
             this.setState({
@@ -96,66 +63,21 @@ class ManageClinic extends Component {
             toast.error('Add new specialty fails');
         }
     };
-
-    handleChangeSelect = async (selectedOption) => {
-        this.setState({
-            selectedOption,
-        });
-        console.log('check selected option', selectedOption);
-        let { listClinic } = this.state;
-        let res = await getAllDetailClinicByIdForManageClinic(selectedOption.value);
-        console.log('check handle change select', res);
-        if (res && res.errCode === 0) {
-            let clinicId = '',
-                name = '',
-                address = '',
-                descriptionHTML = '',
-                descriptionMarkdown = '',
-                selectedClinic = '';
-            if (res.data) {
-                name = res.data.name;
-                address = res.data.address;
-                descriptionHTML = res.data.descriptionHTML;
-                descriptionMarkdown = res.data.descriptionMarkdown;
-                clinicId = selectedOption.value;
-                selectedClinic = listClinic.find((item) => {
-                    return item && item.value === clinicId;
-                });
-            }
-            this.setState({
-                clinicId: selectedOption.value,
-                name: name,
-                address: address,
-                descriptionHTML: descriptionHTML,
-                descriptionMarkdown: descriptionMarkdown,
-                selectedClinic: selectedClinic,
-            });
-        } else {
-            this.setState({
-                clinicId: '',
-                name: '',
-                address: '',
-                descriptionHTML: '',
-                descriptionMarkdown: '',
-                selectedClinic: '',
-            });
-        }
-    };
-
+    componentDidUpdate(prevProps, prevState, snapshot) {}
     render() {
-        console.log('list clinic', this.state.listClinic);
         return (
             <>
                 <div className="manage-specialty-container">
-                    <div className="ms-title">Quản lý phòng khám</div>
+                    <div className="ms-title">Tạo phòng khám</div>
 
                     <div className="add-new-specialty row">
                         <div className="col-6 form-group">
                             <label>Tên phòng khám</label>
-                            <Select
-                                value={this.state.selectedClinic}
-                                onChange={this.handleChangeSelect}
-                                options={this.state.listClinic}
+                            <input
+                                className="form-control"
+                                type="text"
+                                value={this.state.name}
+                                onChange={(event) => this.handleOnChangeInput(event, 'name')}
                             />
                         </div>
 
@@ -186,7 +108,7 @@ class ManageClinic extends Component {
                         </div>
                         <div className="col-12">
                             <button className="btn-save-specialty" onClick={() => this.handleSaveNewClinic()}>
-                                Update
+                                Save
                             </button>
                         </div>
                     </div>
@@ -199,14 +121,11 @@ class ManageClinic extends Component {
 const mapStateToProps = (state) => {
     return {
         language: state.app.language,
-        allRequiredDoctorInfo: state.admin.allRequiredDoctorInfo,
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
-    return {
-        getAllRequiredDoctorInfo: () => dispatch(actions.getRequiredDoctorInfo()),
-    };
+    return {};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ManageClinic);
+export default connect(mapStateToProps, mapDispatchToProps)(CreateClinic);

@@ -40,7 +40,7 @@ class BookingModal extends Component {
             data.map((item) => {
                 let object = {};
                 object.label = language === LANGUAGES.VI ? item.valueVi : item.valueEn;
-                object.value = item.KeyMap;
+                object.value = item.keyMap;
                 result.push(object);
             });
         }
@@ -66,8 +66,6 @@ class BookingModal extends Component {
                     doctorId: doctorId,
                     timeType: timeType,
                 });
-                console.log('check props doctorId: ', doctorId);
-                console.log('check props timeType: ', timeType);
             }
         }
     }
@@ -102,18 +100,16 @@ class BookingModal extends Component {
             email: this.state.email,
             address: this.state.address,
             reason: this.state.reason,
-            date: date,
+            date: this.props.dataTime.date,
+            birthday: date,
             selectedGender: this.state.selectedGender.value,
             doctorId: this.state.doctorId,
             timeType: this.state.timeType,
             language: this.props.language,
             timeString: timeString,
             doctorName: doctorName,
+            dataTimeId: this.props.dataTime.id,
         });
-        console.log('check email: ', this.state.email);
-        console.log('check doctorId: ', this.state.doctorId);
-        console.log('check timeType: ', this.state.timeType);
-        console.log('check date: ', date);
         if (res && res.errCode === 0) {
             toast.success('Booking a new appointment succeed!');
             this.props.closeBookingClose();
@@ -124,7 +120,7 @@ class BookingModal extends Component {
 
     buildTimeBooking = (dataTime) => {
         let { language } = this.props;
-        console.log('check dataTime: ', dataTime);
+
         if (dataTime && !_.isEmpty(dataTime)) {
             let time = language === LANGUAGES.VI ? dataTime.timeTypeData.valueVi : dataTime.timeTypeData.valueEn;
 
