@@ -147,11 +147,15 @@ class ManageClinic extends Component {
         return (
             <>
                 <div className="manage-specialty-container">
-                    <div className="ms-title">Quản lý phòng khám</div>
+                    <div className="ms-title">
+                        <FormattedMessage id="menu.admin.manage-clinic" />
+                    </div>
 
                     <div className="add-new-specialty row">
                         <div className="col-6 form-group">
-                            <label>Tên phòng khám</label>
+                            <label>
+                                <FormattedMessage id="menu.admin.clinic-name" />
+                            </label>
                             <Select
                                 value={this.state.selectedClinic}
                                 onChange={this.handleChangeSelect}
@@ -160,7 +164,9 @@ class ManageClinic extends Component {
                         </div>
 
                         <div className="col-6 form-group">
-                            <label>Ảnh phòng khám</label>
+                            <label>
+                                <FormattedMessage id="menu.admin.clinic-image" />
+                            </label>
                             <input
                                 className="form-control-file"
                                 type="file"
@@ -168,7 +174,9 @@ class ManageClinic extends Component {
                             />
                         </div>
                         <div className="col-6 form-group">
-                            <label>Địa chỉ phòng khám</label>
+                            <label>
+                                <FormattedMessage id="menu.admin.clinic-address" />
+                            </label>
                             <input
                                 className="form-control"
                                 type="text"

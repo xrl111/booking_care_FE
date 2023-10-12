@@ -32,12 +32,18 @@
             "specialty": "Chuyên khoa",
             "manage-specialty": "Quản lý chuyên khoa",
             "create-specialty": "Tạo chuyên khoa",
+            "specialty-name": "Tên chuyên khoa",
+            "specialty-image": "Ảnh chuyên khoa",
             "handbook": "Cẩm Nang",
-            "manage-handbook": "Quản lý cẩm nang"
+            "manage-handbook": "Quản lý cẩm nang",
+            "clinic-name": "Tên phòng khám",
+            "clinic-image": "Ảnh phòng khám",
+            "clinic-address": "Địa chỉ phòng khám"
         },
         "doctor": {
             "manage-schedule": "Quản lý kế hoạch khám bệnh",
-            "manage-patient": "Quản lý lịch khám bác sĩ"
+            "manage-patient": "Quản lý lịch khám bác sĩ",
+            "manage-history": "Lịch sử khám bệnh"
         }
     },
     "manage-user": {
@@ -81,7 +87,7 @@
             "text-address": "Địa chỉ khám",
             "price": "Giá khám",
             "detail": "Xem chi tiết",
-            "payment": "Người bệnh có thể thanh toán chi phí bằng hình thức:",
+            "payment": "Người bệnh có thể thanh toán chi phí bằng hình thức: ",
             "hide-price": "Ẩn bảng giá"
         },
         "booking-modal": {
@@ -98,6 +104,10 @@
             "priceBooking": "Miễn phí đặt lịch",
             "price": "Giá khám: ",
             "viewDetail": "Xem chi tiết"
+        },
+        "booking-alert": {
+            "booking-success": "Xác nhận lịch hẹn thành công",
+            "booking-false": "Lịch hẹn không tồn tại"
         }
     },
 
@@ -116,6 +126,21 @@
             "note": "Ghi chú",
             "specialty": "Chuyên khoa",
             "clinic": "Chọn Phòng khám"
+        }
+    },
+    "doctor": {
+        "manage-schedule": {
+            "title": "Quản lý bệnh nhân khám bệnh",
+            "choose-date": "Chọn ngày khám",
+            "number": "STT",
+            "time": "Thời gian",
+            "fullName": "Họ và tên",
+            "address": "Địa chỉ",
+            "gender": "Giới tính",
+            "note": "Ghi chú",
+            "actions": "Hành động",
+            "button": "Xác nhận",
+            "history": "Lịch sử khám bệnh"
         }
     }
 }

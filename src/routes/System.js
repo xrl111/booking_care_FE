@@ -8,7 +8,7 @@ import Header from '../containers/Header/Header';
 import ManageSpecialty from '../containers/System/Specialty/ManageSpecialty';
 import CreateClinic from '../containers/System/Clinic/CreateClinic';
 import ManageClinic from '../containers/System/Clinic/ManageClinic';
-
+import CreateSpecialty from '../containers/System/Specialty/CreateSpecialty';
 class System extends Component {
     render() {
         const { systemMenuPath, isLoggedIn } = this.props;
@@ -21,7 +21,8 @@ class System extends Component {
                             <Route path="/system/user-manage" component={UserManage} />
                             <Route path="/system/user-redux" component={UserRedux} />
                             <Route path="/system/manage-doctor" component={ManageDoctor} />
-                            <Route path="/system/create-specialty" component={ManageSpecialty} />
+                            <Route path="/system/create-specialty" component={CreateSpecialty} />
+                            <Route path="/system/manage-specialty" component={ManageSpecialty} />
                             <Route path="/system/create-clinic" component={CreateClinic} />
                             <Route path={'/system/manage-clinic'} component={ManageClinic} />
                             <Route

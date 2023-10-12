@@ -75,6 +75,10 @@ const getAllDetailSpecialtyById = (data) => {
     return axios.get(`/api/get-detail-specialty-by-id?id=${data.id}&location=${data.location}`);
 };
 
+const getAllDetailSpecialtyByIdForManageSpecialty = (data) => {
+    return axios.get(`/api/get-detail-specialty-by-id-for-management?id=${data}`);
+};
+
 const createNewClinic = (data) => {
     return axios.post('/api/create-new-clinic', data);
 };
@@ -94,6 +98,10 @@ const getAllPatientForDoctor = (data) => {
 
 const postSendRemedy = (data) => {
     return axios.post(`/api/send-remedy`, data);
+};
+
+const getAllHistoryForDoctor = (data) => {
+    return axios.get(`/api/get-list-history-for-doctor?doctorId=${data.doctorId}&date=${data.date}`);
 };
 export {
     handleLoginApi,
@@ -121,4 +129,6 @@ export {
     getAllDetailClinicByIdForManageClinic,
     getAllPatientForDoctor,
     postSendRemedy,
+    getAllDetailSpecialtyByIdForManageSpecialty,
+    getAllHistoryForDoctor,
 };

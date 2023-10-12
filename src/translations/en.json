@@ -35,11 +35,17 @@
             "manage-specialty": "Manage Specialty",
             "create-specialty": "Create Specialty",
             "handbook": "Handbook",
-            "manage-handbook": "Manage Handbook"
+            "manage-handbook": "Manage Handbook",
+            "clinic-name": "Clinic Name",
+            "clinic-image": "Clinic Image",
+            "clinic-address": "Clinic Address",
+            "specialty-name": "Specialty Name",
+            "specialty-image": "Specialistic Image"
         },
         "doctor": {
             "manage-schedule": "Manage Doctor Schedule",
-            "manage-patient": "Manage Doctor's Patient"
+            "manage-patient": "Manage Doctor's Patient",
+            "manage-history": "Treatment History"
         }
     },
     "manage-user": {
@@ -83,7 +89,7 @@
             "text-address": "Address of examination",
             "price": "Examination price",
             "detail": "See details",
-            "payment": "Thepatient can pay the cost in the form of:",
+            "payment": "The patient can pay the cost in the form of: ",
             "hide-price": "Hide price list"
         },
         "booking-modal": {
@@ -100,6 +106,10 @@
             "priceBooking": "Free booking",
             "price": "Price: ",
             "viewDetail": "Detail"
+        },
+        "booking-alert": {
+            "booking-success": "Appointment confirmed successfully",
+            "booking-false": "Appointment schedule does not exist"
         }
     },
 
@@ -118,6 +128,21 @@
             "note": "Note",
             "specialty": "Specialty",
             "clinic": "Clinic"
+        }
+    },
+    "doctor": {
+        "manage-schedule": {
+            "title": "MEDICAL PATIENT MANAGEMENT",
+            "choose-date": "Choose date",
+            "number": "No",
+            "time": "Time",
+            "fullName": "Fullname",
+            "address": "Address",
+            "gender": "Gender",
+            "note": "Note",
+            "actions": "Actions",
+            "button": "Confirm",
+            "history": "Treatment history"
         }
     }
 }

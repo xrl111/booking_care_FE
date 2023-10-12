@@ -46,19 +46,22 @@ class VerifyEmail extends Component {
     }
     render() {
         let { statusVerify, errCode } = this.state;
-
         return (
             <>
                 <HomeHeader />
                 <div className="verify-email-container">
                     {statusVerify === false ? (
-                        <div>Loading data...</div>
+                        <div>LOADING DATA......</div>
                     ) : (
                         <div>
                             {+errCode === 0 ? (
-                                <div className="infor-booking">Xác nhận lịch hẹn thành công</div>
+                                <div className="infor-booking">
+                                    <FormattedMessage id="patient.booking-alert.booking-success" />
+                                </div>
                             ) : (
-                                <div className="infor-booking">Lịch hẹn không tồn tại</div>
+                                <div className="infor-booking">
+                                    <FormattedMessage id="patient.booking-alert.booking-false" />
+                                </div>
                             )}
                         </div>
                     )}

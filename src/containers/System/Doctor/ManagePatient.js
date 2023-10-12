@@ -19,6 +19,7 @@ class ManagePatient extends Component {
             isOpenRemedyModal: false,
             dataModal: {},
             isShowLoading: false,
+            description: '',
         };
     }
 
@@ -72,7 +73,8 @@ class ManagePatient extends Component {
     };
 
     sendRemedy = async (dataChild) => {
-        let { dataModal } = this.state;
+        let { dataModal, description, currentDate } = this.state;
+        let formattedDate = new Date(currentDate).getTime();
         this.setState({
             isShowLoading: true,
         });
@@ -85,7 +87,10 @@ class ManagePatient extends Component {
             timeType: dataModal.timeType,
             language: this.props.language,
             patientName: dataModal.patientName,
+            description: description,
+            date: formattedDate,
         });
+
         if (res && res.errCode === 0) {
             this.setState({
                 isShowLoading: false,
@@ -102,17 +107,26 @@ class ManagePatient extends Component {
     };
     handleBtnRemedy = () => {};
     componentDidUpdate(prevProps, prevState, snapshot) {}
+    handleTextarea = (event) => {
+        this.setState({
+            description: event.target.value,
+        });
+    };
     render() {
-        let { dataPatient, isOpenRemedyModal, dataModal } = this.state;
+        let { dataPatient, isOpenRemedyModal, dataModal, description } = this.state;
         let { language } = this.props;
         return (
             <>
                 <LoadingOverlay active={this.state.isShowLoading} spinner text="Loading...">
                     <div className="manage-patient-container">
-                        <div className="m-p-title">Quản lý bệnh nhân khám bệnh</div>
+                        <div className="m-p-title">
+                            <FormattedMessage id="doctor.manage-schedule.title" />
+                        </div>
                         <div className="manage-patient-body row">
                             <div className="col-4 form-group">
-                                <label>Chọn ngày khám</label>
+                                <label>
+                                    <FormattedMessage id="doctor.manage-schedule.choose-date" />
+                                </label>
                                 <DatePicker
                                     onChange={this.handleOnChangeDatePicker}
                                     className="form-control"
@@ -123,12 +137,27 @@ class ManagePatient extends Component {
                                 <table style={{ width: '100%' }}>
                                     <tbody>
                                         <tr>
-                                            <th>STT</th>
-                                            <th>Thời gian</th>
-                                            <th>Họ và tên</th>
-                                            <th>Địa chỉ</th>
-                                            <th>Giới tính</th>
-                                            <th>Actions</th>
+                                            <th>
+                                                <FormattedMessage id="doctor.manage-schedule.number" />
+                                            </th>
+                                            <th>
+                                                <FormattedMessage id="doctor.manage-schedule.time" />
+                                            </th>
+                                            <th>
+                                                <FormattedMessage id="doctor.manage-schedule.fullName" />
+                                            </th>
+                                            <th>
+                                                <FormattedMessage id="doctor.manage-schedule.address" />
+                                            </th>
+                                            <th>
+                                                <FormattedMessage id="doctor.manage-schedule.gender" />
+                                            </th>
+                                            <th>
+                                                <FormattedMessage id="doctor.manage-schedule.note" />
+                                            </th>
+                                            <th>
+                                                <FormattedMessage id="doctor.manage-schedule.actions" />
+                                            </th>
                                         </tr>
                                         {dataPatient && dataPatient.length > 0 ? (
                                             dataPatient.map((item, index) => {
@@ -150,11 +179,17 @@ class ManagePatient extends Component {
                                                         <td>{item.patientData.address}</td>
                                                         <td>{gender}</td>
                                                         <td>
+                                                            <textarea
+                                                                value={description}
+                                                                onChange={(event) => this.handleTextarea(event)}
+                                                            ></textarea>
+                                                        </td>
+                                                        <td>
                                                             <button
                                                                 className="mp-btn-confirm"
                                                                 onClick={() => this.handleBtnConfirm(item)}
                                                             >
-                                                                xác nhận
+                                                                <FormattedMessage id="doctor.manage-schedule.button" />
                                                             </button>
                                                         </td>
                                                     </tr>
@@ -162,7 +197,7 @@ class ManagePatient extends Component {
                                             })
                                         ) : (
                                             <tr>
-                                                <td colSpan="6" style={{ textAlign: 'center' }}>
+                                                <td colSpan="7" style={{ textAlign: 'center' }}>
                                                     no data
                                                 </td>
                                             </tr>

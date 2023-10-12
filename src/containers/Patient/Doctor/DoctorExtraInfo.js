@@ -80,7 +80,7 @@ class DoctorExtraInfo extends Component {
                                         value={extraInfo.priceTypeData.valueEn}
                                         displayType={'text'}
                                         thousandSeparator={true}
-                                        suffix={'VND'}
+                                        suffix={'$'}
                                     />
                                 )}
                                 <span className="detail" onClick={() => this.showHideDetailInfo(true)}>
@@ -115,7 +115,7 @@ class DoctorExtraInfo extends Component {
                                                     value={extraInfo.priceTypeData.valueEn}
                                                     displayType={'text'}
                                                     thousandSeparator={true}
-                                                    suffix={'VND'}
+                                                    suffix={'$'}
                                                 />
                                             )}
                                         </span>

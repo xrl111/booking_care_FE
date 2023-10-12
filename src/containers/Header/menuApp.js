@@ -72,6 +72,11 @@ export const doctorMenu = [
                 name: 'menu.doctor.manage-patient',
                 link: '/doctor/manage-patient',
             },
+            {
+                //quản lý lịch hẹn của  bác sĩ
+                name: 'menu.doctor.manage-history',
+                link: '/doctor/manage-history',
+            },
         ],
     },
 ];
