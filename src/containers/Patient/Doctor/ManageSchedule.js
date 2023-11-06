@@ -108,7 +108,6 @@ class ManageSchedule extends Component {
                     object.timeType = time.keyMap;
                     result.push(object);
                 });
-                console.log(result);
             } else {
                 toast.error('Invalid time!');
                 return;
@@ -129,7 +128,7 @@ class ManageSchedule extends Component {
         let { rangeTime } = this.state;
         let { language } = this.props;
         let yesterday = new Date(new Date().setDate(new Date().getDate() - 1));
-        console.log(' check state: ', rangeTime);
+
         return (
             <React.Fragment>
                 <div className="manage-schedule-container">

@@ -55,8 +55,6 @@ class ManageSpecialty extends Component {
 
     handleSaveNewSpecialty = async () => {
         let res = await createNewSpecialty(this.state);
-
-        console.log('check specialty: ', this.state);
         if (res && res.errCode === 0) {
             toast.success('Add new specialty succeeds');
         } else {
@@ -66,7 +64,7 @@ class ManageSpecialty extends Component {
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (prevProps.allRequiredDoctorInfo !== this.props.allRequiredDoctorInfo) {
             let { resSpecialty } = this.props.allRequiredDoctorInfo;
-            console.log(resSpecialty);
+
             let dataSelectSpecialty = this.buildDataInputSelect(resSpecialty);
             this.setState({
                 listSpecialty: dataSelectSpecialty,
@@ -83,17 +81,17 @@ class ManageSpecialty extends Component {
                 results.push(object);
             });
         }
-        console.log(results);
+
         return results;
     };
     handleChangeSelect = async (selectedOption) => {
         this.setState({
             selectedOption,
         });
-        console.log('check selected option', selectedOption);
+
         let { listSpecialty } = this.state;
         let res = await getAllDetailSpecialtyByIdForManageSpecialty(selectedOption.value);
-        console.log('check handle change select', res);
+
         if (res && res.errCode === 0) {
             let specialtyId = '',
                 name = '',

@@ -73,7 +73,6 @@ class DoctorSchedule extends Component {
             this.setState({
                 allAvailableTime: res.data ? res.data : [],
             });
-            console.log('all available time: ', this.state.allAvailableTime);
         }
     }
     handleOnChangeSelect = async (event) => {
@@ -86,7 +85,6 @@ class DoctorSchedule extends Component {
                     allAvailableTime: res.data ? res.data : [],
                 });
             }
-            console.log(res);
         }
     };
 
@@ -95,7 +93,6 @@ class DoctorSchedule extends Component {
             isOpenModalBooking: true,
             dataScheduleTimeModal: time,
         });
-        console.log('scheduleTime: ', time);
     };
 
     closeBookingClose = () => {

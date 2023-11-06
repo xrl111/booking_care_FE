@@ -8,22 +8,13 @@ import 'react-markdown-editor-lite/lib/index.css';
 
 const mdParser = new MarkdownIt();
 
-// function handleEditorChange({ html, text }) {
-//     console.log('handleEditorChange', html, text);
-// }
-
-
-
-
 class TableManageUser extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
             usersRedux: [],
         };
     }
-
 
     componentDidMount() {
         this.props.fetchUserRedux();
@@ -32,16 +23,16 @@ class TableManageUser extends Component {
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (prevProps.listUsers !== this.props.listUsers) {
             this.setState({
-                usersRedux: this.props.listUsers
+                usersRedux: this.props.listUsers,
             });
         }
     }
     handleDeleteUser = (user) => {
         this.props.deleteUserRedux(user.id);
-    }
+    };
     handleEditUser = (user) => {
-        this.props.handleEditUserFromParentKey(user)
-    }
+        this.props.handleEditUserFromParentKey(user);
+    };
     render() {
         let arrUsers = this.state.usersRedux;
         return (
@@ -55,8 +46,8 @@ class TableManageUser extends Component {
                         <th>Action</th>
                     </tr>
 
-
-                    {arrUsers && arrUsers.length > 0 &&
+                    {arrUsers &&
+                        arrUsers.length > 0 &&
                         arrUsers.map((item, index) => {
                             return (
                                 <tr key={index}>
@@ -65,38 +56,33 @@ class TableManageUser extends Component {
                                     <td>{item.lastName}</td>
                                     <td>{item.address}</td>
                                     <td>
-                                        <button
-                                            className='btn-edit'
-                                            onClick={() => this.handleEditUser(item)}
-                                        >
-                                            <i className='fas fa-pencil-alt'
-                                            ></i></button>
-                                        <button
-                                            className='btn-delete'
-                                            onClick={() => this.handleDeleteUser(item)}
-                                        ><i className='fas fa-trash'></i></button>
+                                        <button className="btn-edit" onClick={() => this.handleEditUser(item)}>
+                                            <i className="fas fa-pencil-alt"></i>
+                                        </button>
+                                        <button className="btn-delete" onClick={() => this.handleDeleteUser(item)}>
+                                            <i className="fas fa-trash"></i>
+                                        </button>
                                     </td>
-                                </tr>)
+                                </tr>
+                            );
                         })}
                 </table>
                 {/* <MdEditor style={{ height: '500px' }} renderHTML={text => mdParser.render(text)} onChange={handleEditorChange} /> */}
             </React.Fragment>
-
         );
     }
-
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
     return {
-        listUsers: state.admin.users
+        listUsers: state.admin.users,
     };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
     return {
         fetchUserRedux: () => dispatch(actions.fetchAllUsersStart()),
-        deleteUserRedux: (id) => dispatch(actions.deleteUser(id))
+        deleteUserRedux: (id) => dispatch(actions.deleteUser(id)),
     };
 };
 

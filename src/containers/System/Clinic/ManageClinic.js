@@ -37,7 +37,7 @@ class ManageClinic extends Component {
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (prevProps.allRequiredDoctorInfo !== this.props.allRequiredDoctorInfo) {
             let { resClinic } = this.props.allRequiredDoctorInfo;
-            console.log(resClinic);
+
             let dataSelectClinic = this.buildDataInputSelect(resClinic);
             this.setState({
                 listClinic: dataSelectClinic,
@@ -54,7 +54,7 @@ class ManageClinic extends Component {
                 results.push(object);
             });
         }
-        console.log(results);
+
         return results;
     };
     handleOnChangeInput = (event, id) => {
@@ -82,7 +82,7 @@ class ManageClinic extends Component {
 
     handleSaveNewClinic = async () => {
         let res = await createNewClinic(this.state);
-        console.log('saveNewClinic', this.state);
+
         if (res && res.errCode === 0) {
             toast.success('Add new specialty succeeds');
             this.setState({
@@ -101,10 +101,10 @@ class ManageClinic extends Component {
         this.setState({
             selectedOption,
         });
-        console.log('check selected option', selectedOption);
+
         let { listClinic } = this.state;
         let res = await getAllDetailClinicByIdForManageClinic(selectedOption.value);
-        console.log('check handle change select', res);
+
         if (res && res.errCode === 0) {
             let clinicId = '',
                 name = '',
@@ -143,7 +143,6 @@ class ManageClinic extends Component {
     };
 
     render() {
-        console.log('list clinic', this.state.listClinic);
         return (
             <>
                 <div className="manage-specialty-container">

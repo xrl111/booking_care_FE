@@ -146,7 +146,6 @@ class ManageDoctor extends Component {
             clinicId: this.state.selectedClinic,
             specialtyId: this.state.selectedSpecialty,
         });
-        console.log('check state:', this.state);
     };
     handleChangeSelect = async (selectedOption) => {
         this.setState({
