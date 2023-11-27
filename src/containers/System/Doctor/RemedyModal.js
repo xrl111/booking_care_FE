@@ -57,7 +57,7 @@ class RemedyModal extends Component {
             <>
                 <Modal isOpen={isOpenModal} className={'booking-modal-container'} size="md" centered>
                     <div className="modal-header">
-                        <h5 className="modal-title">Gửi hóa đơn khám bệnh thành công</h5>
+                        <h5 className="modal-title">Send Remedy success</h5>
                         <button type="button" className="close" aria-label="Close" onClick={closeRemedyModal}>
                             <span aria-hidden="true">x</span>
                         </button>
